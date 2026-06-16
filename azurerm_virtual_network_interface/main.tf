@@ -11,3 +11,9 @@ resource "azurerm_network_interface" "para-nic" {
     primary                       = true
   }
 }
+resource "azurerm_network_interface_security_group_association" "para-nsg-association" {
+  for_each                     = var.para-NIC
+  network_interface_id         = azurerm_network_interface.para-nic[each.key].id
+  network_security_group_id    = azurerm_network_security_group.para-nsg.id
+  
+}

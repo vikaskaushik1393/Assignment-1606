@@ -1,0 +1,1 @@
+variable "para-nsg" {}

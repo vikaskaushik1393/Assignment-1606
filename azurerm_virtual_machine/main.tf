@@ -24,7 +24,7 @@ resource "azurerm_virtual_machine" "main" {
     admin_password = each.value.os_profile.admin_password
   }
   os_profile_linux_config {
-    disable_password_authentication = true
+    disable_password_authentication = false
   }
 
 }
