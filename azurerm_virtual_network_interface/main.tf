@@ -13,7 +13,7 @@ resource "azurerm_network_interface" "para-nic" {
 }
 resource "azurerm_network_interface_security_group_association" "para-nsg-association" {
   for_each                     = var.para-NIC
-  network_interface_id         = azurerm_network_interface.para-nic[each.key].id
-  network_security_group_id    = azurerm_network_security_group.para-nsg.id
+  network_interface_id         = each.value.network_interface_id
+  network_security_group_id    = each.value.network_security_group_id
   
 }
